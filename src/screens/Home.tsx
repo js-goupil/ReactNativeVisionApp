@@ -8,8 +8,14 @@ import {
   StyleSheet,
 } from 'react-native';
 
+import {NativeModules} from 'react-native'
+
 export const Home = () => {
   const isDarkMode = useColorScheme() === 'dark';
+
+  const { NativeModule } = NativeModules;
+
+  NativeModule.sumTwoNumbers(5, 10);
 
   return (
     <SafeAreaView>
