@@ -6,22 +6,20 @@ import {
   Text,
   useColorScheme,
   StyleSheet,
+  requireNativeComponent,
 } from 'react-native';
 
-import {NativeModules} from 'react-native'
+const VisionView = React.memo(requireNativeComponent('VisionImageView'));
 
 export const Home = () => {
   const isDarkMode = useColorScheme() === 'dark';
-
-  const { NativeModule } = NativeModules;
-
-  NativeModule.sumTwoNumbers(5, 10);
 
   return (
     <SafeAreaView>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <ScrollView style={styles.container}>
         <Text>Hello World</Text>
+        <VisionView imageMode="scaleAspectFill" style={{width: 100, height: 100}} />
       </ScrollView>
     </SafeAreaView>
   );

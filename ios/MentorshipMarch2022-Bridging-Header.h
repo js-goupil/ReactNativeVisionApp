@@ -3,3 +3,4 @@
 //
 #import "React/RCTBridgeModule.h"
 #import "RCTViewManager.h"
+#import "React/RCTViewManager.h"
