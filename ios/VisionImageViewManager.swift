@@ -38,12 +38,31 @@ class VisionImageView: UIImageView {
     }
   }
   
+  @objc var cropForSaliency: Bool = false {
+    didSet {
+      if cropForSaliency {
+        image = salientImage
+      } else {
+        image = UIImage(named: "penguin")
+      }
+    }
+  }
+  
+  private var salientImage: UIImage? = nil {
+    didSet {
+      if cropForSaliency {
+        image = salientImage
+      }
+    }
+  }
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     let image = UIImage(named: "penguin")!
     let imageCropper = SaliencyImageCropper()
+    self.image = image
     imageCropper.processImage(image) { [weak self] newImage in
-      self?.image = newImage
+      self?.salientImage = newImage
     }
   }
   

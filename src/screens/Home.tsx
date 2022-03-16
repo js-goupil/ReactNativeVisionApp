@@ -19,7 +19,8 @@ export const Home = () => {
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <ScrollView style={styles.container}>
         <Text>Hello World</Text>
-        <VisionView imageMode="scaleAspectFill" style={{width: 100, height: 100}} />
+        <VisionView imageMode="scaleAspectFill" cropForSaliency={true} style={{width: 123, height: 100}} />
+        <VisionView imageMode="scaleAspectFill" cropForSaliency={false} style={{width: 123, height: 100}} />
       </ScrollView>
     </SafeAreaView>
   );
