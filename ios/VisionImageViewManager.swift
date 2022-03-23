@@ -32,6 +32,8 @@ class VisionImageView: UIImageView {
         self.contentMode = .scaleAspectFill
       case "scaleAspectFit":
         self.contentMode = .scaleAspectFit
+      case "scaleToFill":
+        self.contentMode = .scaleToFill
       default:
         self.contentMode = .scaleToFill
       }
@@ -61,6 +63,7 @@ class VisionImageView: UIImageView {
     let image = UIImage(named: "penguin")!
     let imageCropper = SaliencyImageCropper()
     self.image = image
+    self.clipsToBounds = true
     imageCropper.processImage(image) { [weak self] newImage in
       self?.salientImage = newImage
     }

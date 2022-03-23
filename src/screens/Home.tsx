@@ -18,9 +18,18 @@ export const Home = () => {
     <SafeAreaView>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <ScrollView style={styles.container}>
-        <Text>Hello World</Text>
-        <VisionView imageMode="scaleAspectFill" cropForSaliency={true} style={{width: 123, height: 100}} />
-        <VisionView imageMode="scaleAspectFill" cropForSaliency={false} style={{width: 123, height: 100}} />
+        <Text>Original image</Text>
+        <VisionView
+          imageMode="scaleAspectFill"
+          cropForSaliency={false}
+          style={{width: 123, height: 100}}
+        />
+        <Text>Cropped for saliency</Text>
+        <VisionView
+          imageMode="scaleAspectFill"
+          cropForSaliency={true}
+          style={{width: 123, height: 100}}
+        />
       </ScrollView>
     </SafeAreaView>
   );
