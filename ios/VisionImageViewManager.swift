@@ -50,6 +50,21 @@ class VisionImageView: UIImageView {
     }
   }
   
+  @objc var imageSource: String? = nil {
+    didSet {
+      guard let imageSource = imageSource else {
+        return
+      }
+      
+      let downloadTask = ImageDownloader(urlString: imageSource)
+      downloadTask.downloadImage { [weak self] newImage in
+        DispatchQueue.main.async {
+          self?.image = newImage
+        }
+      }
+    }
+  }
+  
   private var salientImage: UIImage? = nil {
     didSet {
       if cropForSaliency {

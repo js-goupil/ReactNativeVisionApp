@@ -10,5 +10,6 @@
 
 @interface RCT_EXTERN_MODULE(VisionImageViewManager, RCTViewManager)
   RCT_EXPORT_VIEW_PROPERTY(imageMode, NSString);
+  RCT_EXPORT_VIEW_PROPERTY(imageSource, NSString);
   RCT_EXPORT_VIEW_PROPERTY(cropForSaliency, BOOL);
 @end
